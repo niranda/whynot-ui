@@ -1,0 +1,41 @@
+<div class="container">
+    <mat-toolbar class="vertical-toolbar">
+        <div class="toolbar-content">
+          <span class="material-icons toolbar-element">menu_book</span>
+          <button mat-raised-button class="toolbar-element" (click)="selectedTab = 'readers'" [class.selected]="selectedTab === 'readers'">Читачі</button>
+          <button mat-raised-button class="toolbar-element" (click)="selectedTab = 'books'" [class.selected]="selectedTab === 'books'">Книги</button>
+          <button mat-raised-button class="toolbar-element" (click)="selectedTab = 'lendings'" [class.selected]="selectedTab === 'lendings'">Прокат</button>
+          <button mat-raised-button class="toolbar-element" (click)="selectedTab = 'reports'" [class.selected]="selectedTab === 'reports'">Звітність</button>
+          <button mat-button class="toolbar-element logout-button" (click)="logout()">Вийти</button>
+        </div>
+    </mat-toolbar>
+    <div [ngClass]="{'invisible': selectedTab != 'readers'}" class="wrapper">  
+        <ng-container *ngIf="selectedTab === 'readers'">
+            <app-reader-list></app-reader-list>
+        </ng-container>
+    </div>
+      <div [ngClass]="{'invisible': selectedTab != 'books'}" class="wrapper">
+        <ng-container *ngIf="selectedTab === 'books'">
+            <app-book-list></app-book-list>
+          </ng-container>
+      </div>
+      
+      <div [ngClass]="{'invisible': selectedTab != 'initial'}" class="wrapper">
+        <ng-container *ngIf="selectedTab === 'initial'">
+            <app-library-logo></app-library-logo>
+          </ng-container>
+      </div>
+
+      <div [ngClass]="{'invisible': selectedTab != 'lendings'}" class="wrapper">
+        <ng-container *ngIf="selectedTab === 'lendings'">
+            <app-lending></app-lending>
+          </ng-container>
+      </div>
+
+      <div [ngClass]="{'invisible': selectedTab != 'reports'}" class="wrapper">
+        <ng-container *ngIf="selectedTab === 'reports'">
+            <app-report-list></app-report-list>
+          </ng-container>
+      </div>
+      
+</div>

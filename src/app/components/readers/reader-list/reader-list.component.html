@@ -1,0 +1,45 @@
+
+  <div class="toolbar-container">
+    <div class="toolbar-header">Читачі</div>
+    <hr class="toolbar-hr">
+    <div class="toolbar-buttons">
+      
+      <mat-form-field>
+      <input matInput class="form-control search-input form-input" placeholder="Пошук" type="search" [(ngModel)]="search">
+      </mat-form-field>
+      <button mat-icon-button (click)="toggleFilter()">
+        <mat-icon>sort_by_alpha</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openCreateReaderDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+  <div class="table-container">
+    <table class="reader-table">
+      <thead>
+        <tr>
+          <th class="underline">Прізвище</th>
+          <th class="underline">Ім'я</th>
+          <th class="underline">По батькові</th>
+          <th class="underline">Email</th>
+          <th class="underline">Телефон</th>
+          <th class="underline">Адреса</th>
+          <th class="underline">Знижка</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reader of (readers | filter:search)" (click)="openReaderDetails(reader)">
+          <td>{{ reader.lastName }}</td>
+          <td>{{ reader.firstName }}</td>
+          <td>{{ reader.surname }}</td>
+          <td>{{ reader.email }}</td>
+          <td>{{ reader.phone }}</td>
+          <td>{{ reader.address }}</td>
+          <td>{{ reader.discountAmount }} %</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

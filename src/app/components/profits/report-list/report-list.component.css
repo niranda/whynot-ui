@@ -1,0 +1,60 @@
+.toolbar-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .toolbar-header {
+    margin-bottom: 10px;
+    font-size: 40px;
+    margin: 40px 60px;
+  }
+  
+  .toolbar-hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 60px;
+  }
+  
+  .toolbar-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toolbar-buttons mat-form-field {
+    width: 84%; 
+    margin-right: 10px; 
+  }
+
+  .table-container {
+    width: calc(100% - 164px); 
+    margin: 10px 77px; 
+    background-color: #E4E4E4; 
+    border-radius: 5px;
+    height: 65%;
+  }
+
+  .invisible {
+    display: none;
+  }
+  
+  .reader-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; 
+  }
+  
+  .reader-table th,
+  .reader-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .reader-table td {
+    cursor: pointer;
+  }
+  
+  .reader-table th.underline {
+    border-bottom: 1px solid black; 
+  }

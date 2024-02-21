@@ -1,0 +1,28 @@
+.toolbar-header {
+    margin-bottom: 10px;
+    font-size: 35px;
+    margin: 40px 60px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-cancel {
+    margin-right: 30px;
+  }
+
+  .general-field {
+    width: 100%;
+  }
+
+  .discount-field {
+    margin-left: 160px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }

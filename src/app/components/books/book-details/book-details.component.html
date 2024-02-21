@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="toolbar-header">Редагування інформації книги</div>
+  <mat-dialog-actions align="end" class="header-cancel">
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+  <form #readerForm="ngForm">
+    <mat-form-field class="general-field">
+        <mat-label>Назва</mat-label>
+        <input matInput placeholder="Назва" name="title" [(ngModel)]="selectedBook.title" required>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+        <mat-label>Автор</mat-label>
+        <input matInput placeholder="Автор" name="author" [(ngModel)]="selectedBook.author" required>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+        <mat-label>Жанр</mat-label>
+        <input matInput placeholder="Жанр" name="genre" [(ngModel)]="selectedBook.genre" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Вартість застави (грн.)</mat-label>
+        <input type="number" matInput placeholder="Вартість застави" name="depositAmount" [(ngModel)]="selectedBook.depositAmount" required>
+    </mat-form-field>
+    <mat-form-field class="discount-field">
+        <mat-label>Вартість за день (грн.)</mat-label>
+        <input type="number" matInput placeholder="Rental cost per day" name="rentalCostPerDay" [(ngModel)]="selectedBook.rentalCostPerDay" required>
+    </mat-form-field>       
+    <p><mat-checkbox name="isAvailable" [(ngModel)]="selectedBook.isAvailable">Доступність</mat-checkbox></p>
+</form>
+    <div class="button-container">
+      <button mat-button [disabled]="!readerForm.valid" (click)="editBook()">Зберегти</button>
+      <button mat-button [disabled]="!readerForm.valid" (click)="deleteBook()">Видалити</button>
+    </div>
+</mat-dialog-content>

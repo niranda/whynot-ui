@@ -1,0 +1,40 @@
+<div class="toolbar-container">
+  <div class="toolbar-header">Книги</div>
+  <hr class="toolbar-hr">
+  <div class="toolbar-buttons">
+    
+    <mat-form-field>
+      <input matInput class="form-control search-input form-input" placeholder="Пошук" type="search" [(ngModel)]="search">
+    </mat-form-field>
+    <button mat-button (click)="getBooks()">Всі</button>
+    <button mat-button (click)="filterAvailable()">Доступні</button>
+    <button mat-icon-button (click)="openCreateBookDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="table-container">
+  <table class="reader-table">
+    <thead>
+      <tr>
+        <th class="underline">Назва</th>
+        <th class="underline">Автор</th>
+        <th class="underline">Жанр</th>
+        <th class="underline">Доступність</th>
+        <th class="underline">Вартість застави (грн.)</th>
+        <th class="underline">Вартість за день (грн.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of (books | bookFilter:search)" (click)="openBookDetails(book)">
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.genre }}</td>
+        <td>{{ book.isAvailable }}</td>
+        <td>{{ book.depositAmount }} ₴</td>
+        <td>{{ book.rentalCostPerDay }} ₴</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

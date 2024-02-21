@@ -1,0 +1,25 @@
+<div class="toolbar-container">
+  <div class="toolbar-header">Прокат</div>
+  <hr class="toolbar-hr">
+  <div class="toolbar-buttons">
+      <button mat-button (click)="openCreateLendingDialog()">Оформлення прокату</button>
+      <button mat-button (click)="openFinishLendingDialog()">Оформлення повернення</button>
+  </div>
+</div>
+
+<div class="card-container">
+  <mat-card class="example-card" *ngFor="let lending of infos">
+      <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Код прокату {{ lending.id }}</mat-card-title>
+          <mat-card-subtitle>Статус {{ lending.status | lendingStatus }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <p>Дата початку: {{ lending.dateIssued | date }}</p>
+          <p>Дата повернення: {{ lending.endDate ? (lending.endDate | date) : 'не повернено' }}</p>
+          <p>Очікувана дата повернення: {{ lending.estimatedDate | date }}</p>
+          <p>ID читача: {{ lending.readerId }}</p>
+          <p>ID книги: {{ lending.bookId }}</p>
+      </mat-card-content>
+  </mat-card>
+</div>

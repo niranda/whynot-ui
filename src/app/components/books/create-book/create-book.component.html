@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="toolbar-header">Нова книга</div>
+  <mat-dialog-actions align="end" class="header-cancel">
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<mat-dialog-content>
+  <form #readerForm="ngForm" [formGroup]="addForm">
+      <mat-form-field class="general-field">
+      <mat-label>Назва</mat-label>
+      <input matInput placeholder="Назва" name="title" formControlName="title" required>
+      </mat-form-field>
+      <mat-form-field class="general-field">
+      <mat-label>Автор</mat-label>
+      <input matInput placeholder="Автор" name="author" formControlName="author" required>
+      </mat-form-field>
+      <mat-form-field class="general-field">
+      <mat-label>Жанр</mat-label>
+      <input matInput placeholder="Жанр" name="genre" formControlName="genre" required>
+      </mat-form-field>
+      <mat-form-field>
+      <mat-label>Вартість застави (грн.)</mat-label>
+      <input type="number" matInput placeholder="Вартість застави" name="depositAmount" formControlName="depositAmount" required>
+      </mat-form-field>
+      <mat-form-field class="discount-field">
+      <mat-label>Вартість за день (грн.)</mat-label>
+      <input type="number" matInput placeholder="Вартість за день" name="rentalCost" formControlName="rentalCost" required>
+      </mat-form-field>      
+      <p><mat-checkbox formControlName="isAvailable">Доступність</mat-checkbox></p>
+  </form>
+  <div class="button-container">
+    <button mat-button [disabled]="!addForm.valid" (click)="addBook()">Зберегти</button>
+  </div>
+</mat-dialog-content>

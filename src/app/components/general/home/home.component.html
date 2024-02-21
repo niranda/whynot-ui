@@ -1,0 +1,90 @@
+<ng-container *ngIf="openChat === false">
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/@angular/material/13.2.0/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #CAB3A1; 
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+  
+      .container {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        max-width: 1000px; 
+        width: 90%; 
+        background-color: transparent; 
+        padding: 20px;
+      }
+  
+      .login-form {
+        width: 30%; 
+        padding-right: 20px; 
+      }
+  
+      .login-header {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 30px; 
+      }
+  
+      .login-title {
+        font-size: 30px;
+        margin-bottom: 30px; 
+      }
+  
+      .login-subtitle {
+        font-size: 20px;
+        margin-bottom: 30px; 
+      }
+  
+      .signup-img {
+        width: 65%; 
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1); 
+      }
+  
+      .login-button {
+        background-color: #A58A76 !important; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <div class="login-header">
+          <span class="material-icons" style="margin-right: 5px;">menu_book</span> 
+          Книгарня "WhyNot"
+        </div>
+        <div class="login-title">Авторизуйтесь</div>
+        <div class="login-subtitle">Увійдіть до вашого акаунту</div>
+        <form *ngIf="!isSignup" class="form" style="display: flex; flex-direction: column;"[formGroup]="userLoginForm" (ngSubmit)="submitLoginForm()" autocomplete="off">
+          <mat-form-field>
+            <input matInput placeholder="Ваш логін" [(ngModel)]="loginTextValue" type="text" formControlName="name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Ваш пароль" [(ngModel)]="passwordTextValue" type="password" formControlName="password">
+          </mat-form-field>
+          <button mat-raised-button class="login-button" type="submit">Увійти</button>
+        </form>
+      </div>
+      <img class="signup-img" src="../../../assets/images/library.png" alt="">
+    </div>
+  </body>
+  </html>
+</ng-container>
+
+
+<ng-container *ngIf="openChat === true">
+    <app-library></app-library>
+</ng-container>

@@ -1,0 +1,52 @@
+<div class="header">
+  <div class="toolbar-header">Новий читач</div>
+  <mat-dialog-actions align="end" class="header-cancel">
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<mat-dialog-content>
+  <form #readerForm="ngForm" [formGroup]="addForm">
+    <mat-form-field class="general-field">
+        <mat-label>Ім'я</mat-label>
+        <input matInput placeholder="Ім'я" name="firstName" formControlName="firstName" required>
+        <mat-error *ngIf="addForm.controls['firstName'].hasError('required')">Ім'я обов'язкове</mat-error>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+        <mat-label>Прізвище</mat-label>
+        <input matInput placeholder="Прізвище" name="lastName" formControlName="lastName" required>
+        <mat-error *ngIf="addForm.controls['lastName'].hasError('required')">Прізвище обов'язкове</mat-error>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+        <mat-label>По батькові</mat-label>
+        <input matInput placeholder="По батькові" name="surname" formControlName="surname" required>
+        <mat-error *ngIf="addForm.controls['surname'].hasError('required')">По батькові обов'язкове</mat-error>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" name="email" formControlName="email" required>
+      <mat-error *ngIf="addForm.controls['email'].hasError('required')">Email обов'язкове</mat-error>
+    </mat-form-field>
+    <mat-form-field class="general-field">
+        <mat-label>Адреса</mat-label>
+        <input matInput placeholder="Адреса" name="address" formControlName="address" required>
+        <mat-error *ngIf="addForm.controls['address'].hasError('required')">Адреса обов'язкове</mat-error>
+      </mat-form-field>
+    <mat-form-field>
+        <mat-label>Телефон</mat-label>
+        <input matInput placeholder="Телефон" name="phone" formControlName="phone" prefix="+38" mask="(000) 000 00 00" required>
+        <mat-error *ngIf="addForm.controls['phone'].hasError('required')">Телефон обов'язкове</mat-error>
+      </mat-form-field>      
+    <mat-form-field class="discount-field">
+        <mat-label>Знижка (у відсотках)</mat-label>
+        <input type="number" matInput placeholder="Знижка" name="discountAmount" formControlName="discountAmount" required>
+        <mat-error *ngIf="addForm.controls['discountAmount'].hasError('required')">Знижка обов'язкове</mat-error>
+      </mat-form-field>
+</form>
+    <div class="button-container">
+      <button mat-button [disabled]="!addForm.valid" (click)="addReader()">Зберегти</button>
+    </div>
+</mat-dialog-content>
+

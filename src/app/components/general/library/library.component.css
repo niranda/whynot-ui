@@ -1,0 +1,46 @@
+.vertical-toolbar {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  width: 15%; 
+  background-color: #A58A76;
+}
+
+.toolbar-content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.vertical-toolbar .material-icons {
+  margin-bottom: 10px; 
+}
+
+.vertical-toolbar button {
+  width: 100%; 
+  margin-bottom: 5px; 
+}
+
+.toolbar-element {
+  margin-bottom: 40px !important;
+}
+
+.wrapper {
+  width: 85%;
+  background-color: #CAB3A1;
+}
+
+.container {
+  display: flex;
+}
+
+.invisible {
+  display: none;
+}
+
+.logout-button {
+  color: rgb(212, 0, 0) !important;
+}
