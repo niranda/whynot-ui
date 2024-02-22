@@ -9,7 +9,12 @@ export interface BiblioReader {
     address: string;
     phone: string;
     email: string;
-    discountAmount?: number;
+    discount: BiblioDiscount,
     biblioFines?: BiblioFine[],
     biblioLendingInfos?: BiblioLendingInfo[],
+}
+
+export interface BiblioDiscount {
+    id?: string;
+    discountAmount?: number;
 }

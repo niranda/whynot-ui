@@ -18,6 +18,8 @@ export class ReaderDetailsComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.selectedReader = { ...data.reader };
+    this.selectedReader.biblioFines = [];
+    this.selectedReader.biblioLendingInfos = [];
   }
 
   editReader() {
