@@ -36,6 +36,16 @@ export class ReaderDetailsComponent {
   }
 
   deleteReader() {
-    this.readerService.deleteReader(this.selectedReader.id);
+    this.readerService.deleteReader(this.selectedReader.id).subscribe(() => {
+      this.dialogRef.close();
+      this.snackBar.open('Reader deleted successfully', 'Close', {
+        duration: 2000
+      });
+    }, error => {
+      console.error('Error deleting reader:', error);
+      this.snackBar.open('Error deleting reader', 'Close', {
+        duration: 2000
+      });
+    });
   }
 }

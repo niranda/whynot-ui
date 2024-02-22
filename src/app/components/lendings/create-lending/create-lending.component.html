@@ -4,29 +4,28 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-dialog-actions>
-
-
+    
 <mat-dialog-content>
-    <form #readerForm="ngForm" [formGroup]="addForm">
-        <p>Інформація про читача</p>
-        <mat-form-field class="general-field">
-            <input matInput class="form-control search-input form-input" name="searchUser" placeholder="Пошук" type="text" [matAutocomplete]="auto" [(ngModel)]="search" (input)="filterUsers()" required>
-        </mat-form-field>
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUserFn">
-        <mat-option *ngFor="let user of filteredUsers" [value]="user" (onSelectionChange)="selectUser(user)">
-            {{ user.firstName }} {{ user.lastName }} | {{ user.phone }}
-        </mat-option>
-        </mat-autocomplete>
+    <p>Інформація про читача</p>
+    <mat-form-field class="general-field">
+        <input matInput class="form-control search-input form-input" name="searchUser" placeholder="Пошук" type="text" [matAutocomplete]="auto" [(ngModel)]="search" (input)="filterUsers()" required>
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUserFn">
+    <mat-option *ngFor="let user of filteredUsers" [value]="user" (onSelectionChange)="selectUser(user)">
+        {{ user.firstName }} {{ user.lastName }} | {{ user.phone }}
+    </mat-option>
+    </mat-autocomplete>
 
-        <p>Інформація про книгу</p>
-        <mat-form-field class="general-field">
-            <input matInput class="form-control search-input form-input" name="searchBook" placeholder="Пошук" type="text" [matAutocomplete]="bookAuto" [(ngModel)]="bookSearch" (input)="filterBooks()" required>
-        </mat-form-field>
-        <mat-autocomplete   mat-autocomplete #bookAuto="matAutocomplete" [displayWith]="displayBookFn">
-        <mat-option *ngFor="let book of filteredBooks" [value]="book" (onSelectionChange)="selectBook(book)">
-            {{ book.title }} | {{ book.author }} 
-        </mat-option>
-        </mat-autocomplete>
+    <p>Інформація про книгу</p>
+    <mat-form-field class="general-field">
+        <input matInput class="form-control search-input form-input" name="searchBook" placeholder="Пошук" type="text" [matAutocomplete]="bookAuto" [(ngModel)]="bookSearch" (input)="filterBooks()" required>
+    </mat-form-field>
+    <mat-autocomplete   mat-autocomplete #bookAuto="matAutocomplete" [displayWith]="displayBookFn">
+    <mat-option *ngFor="let book of filteredBooks" [value]="book" (onSelectionChange)="selectBook(book)">
+        {{ book.title }} | {{ book.author }} 
+    </mat-option>
+    </mat-autocomplete>
+    <form #readerForm="ngForm" [formGroup]="addForm">
         <p>Термін прокату</p>
         <mat-form-field>
             <mat-label>з</mat-label>
