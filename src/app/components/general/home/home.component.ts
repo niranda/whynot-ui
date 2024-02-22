@@ -73,14 +73,15 @@ export default class HomeComponent implements OnInit  {
 
       this.authService.login(loginUser).subscribe({
         next: (response) => {
-          this.authService.setToken();
-          this.openChat = true;
-          this.userLoginForm.reset();
-          this.submittedLogin = false;
+          if (response === 0) {
+            this.authService.setToken();
+            this.openChat = true;
+            this.userLoginForm.reset();
+            this.submittedLogin = false;
+          }
+
           if (!this.authService.isLoggedIn) {
-            if (response === 3) {
-              this.openModal('confirm-email');
-            } else {
+            if (response != 0) {
               this.apiErrorMessages.push("Wrong name or password");
             }
           }
