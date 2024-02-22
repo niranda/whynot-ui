@@ -147,7 +147,7 @@ export class CreateLendingComponent implements OnInit  {
 
   selectUser(user: any) {
     this.reader = user;
-    this.discount = user.discount.discountAmount;
+    this.discount = user.discountAmount;
     this.addForm.get('readerId')?.setValue(user.id);
   }
 

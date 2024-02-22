@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BiblioReaderService } from 'src/app/services/http/biblio-reader.service';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
-import { BiblioDiscount, BiblioReader } from 'src/app/models/biblioReader';
+import { BiblioReader } from 'src/app/models/biblioReader';
 
 @Component({
   selector: 'app-create-reader',
@@ -30,10 +30,6 @@ export class CreateReaderComponent {
   }
 
   addReader() {
-    const biblioDiscount: BiblioDiscount = {
-      discountAmount: this.addForm.controls['discountAmount'].value
-    };
-
     const addReader: BiblioReader = {
       firstName: this.addForm.controls['firstName'].value,
       lastName: this.addForm.controls['lastName'].value,
@@ -41,7 +37,7 @@ export class CreateReaderComponent {
       email: this.addForm.controls['email'].value,
       address: this.addForm.controls['address'].value,
       phone: this.addForm.controls['phone'].value,
-      discount: biblioDiscount,
+      discountAmount: this.addForm.controls['discountAmount'].value,
       biblioFines: [],
       biblioLendingInfos: []
     }
